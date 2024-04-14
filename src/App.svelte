@@ -1,11 +1,11 @@
 <script>
 	import Router from 'svelte-spa-router';
 	import routes from './routes';
-	import Button from '@smui/button';
+	import Login from './Login.svelte';
 </script>
 
 <main>
-	<Button />
+	<Login />
 	<Router {routes} />
 </main>
 
