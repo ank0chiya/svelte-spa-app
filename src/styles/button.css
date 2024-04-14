@@ -1,0 +1,9 @@
+/* login btn */
+.login-btn {
+    background-color: #3b82f6
+}
+
+
+:root {
+    --login-btn-color: #3b82f6
+}

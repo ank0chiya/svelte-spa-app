@@ -2,11 +2,17 @@
 	import Router from 'svelte-spa-router';
 	import routes from './routes';
 	import Login from './Login.svelte';
+
+	import  { isLogin } from "./lib/login";
+
 </script>
 
 <main>
-	<Login />
-	<Router {routes} />
+	{#if $isLogin}
+		<Router {routes} />
+	{:else}
+		<Login />
+	{/if } 
 </main>
 
 <style>
