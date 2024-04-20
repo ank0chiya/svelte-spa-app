@@ -29,6 +29,10 @@ jobs:
       - name: Build
         run: npm i && npm run build
 
+      - name: TEST
+        run: "ls -al && cat dist/index.html"
+
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
