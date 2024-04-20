@@ -1,6 +1,15 @@
 <script>
-	import Material from "./Material.svelte";
+	import Sidebar from "../components/Sidebar.svelte";
+    import Header from "../components/Header.svelte";
+    import HomeDashBoard from "../components/HomeDashBoard.svelte";
 </script>
+
+<Header />
+
+<div class="flex gap-4">
+	<Sidebar />
+	<HomeDashBoard />
+</div>
 
 <h1>Hello world!</h1>
 <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
@@ -11,8 +20,6 @@
 <p>
     Check a route: <a href="#/lorem/2">Lorem ipsum</a>
 </p>
-
-<Material />
 
 <style>
 	h1 {

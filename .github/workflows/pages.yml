@@ -29,16 +29,10 @@ jobs:
       - name: Build
         run: npm i && npm run build
 
-      - name: TEST1
-        run: "cat dist/index.html"
-
       - name: EDIT
         run: |
           sed -i 's!/asset!./asset!g' dist/index.html
           touch dist/.nojelyll
-
-      - name: TEST2
-        run: "cat dist/index.html"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
