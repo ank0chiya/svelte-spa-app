@@ -1,6 +1,6 @@
 name: Deploy pages
 
-on: 
+on:
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -10,7 +10,7 @@ permissions:
   pages: write
   id-token: write
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,22 +22,28 @@ jobs:
         with:
           node-version: 20.12.2
           cache: npm
-      
+
       - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm i && npm run build
 
-      - name: TEST
-        run: "ls -al && cat dist/index.html"
+      - name: TEST1
+        run: "cat dist/index.html"
 
+      - name: EDIT
+        run: |
+          "sed -i s!/asset!./assst!g dist/index.html"
+          touch dist/.nojelyll
+
+      - name: TEST2
+        run: "cat dist/index.html"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './dist'
-
+          path: "./dist"
 
   deploy:
     environment:
@@ -49,6 +55,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-
-    
