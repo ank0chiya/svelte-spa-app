@@ -4,11 +4,24 @@
 
     import Accordion, { Panel, Header, Content } from "@smui-extra/accordion";
     import IconButton, { Icon } from "@smui/icon-button";
-    
+
+    import arch from "../data/archivement.json";
+
     let panel1Open = false;
     let panel2Open = false;
 
     let clicked = "nothing yet";
+
+    let categories = [];
+
+    categories = Object.entries(arch)
+        .map(([id, data]) => ({
+            id,
+            name: data.name,
+            order: data.order
+        }))
+        .sort((a, b) => a.order - b.order);
+    console.log(categories)
 </script>
 
 <div class="drawer-container">
@@ -18,7 +31,7 @@
                 <Accordion>
                     <Panel bind:open={panel1Open}>
                         <Header>
-                            FOOD
+                            アチーブメント
                             <IconButton slot="icon" toggle pressed={panel1Open}>
                                 <Icon class="material-icons" on
                                     >expand_less</Icon
@@ -27,22 +40,16 @@
                             </IconButton>
                         </Header>
                         <Content>
-                            <List>
-                                <Item
-                                    href="javascript:void(0)"
-                                    on:click={() => (clicked = "Gray Kittens")}
-                                >
-                                    <Text>FOOD1</Text>
-                                </Item>
-                            </List>
-                            <List>
-                                <Item
-                                    href="javascript:void(0)"
-                                    on:click={() => (clicked = "Gray Kittens")}
-                                >
-                                    <Text>FOOD2</Text>
-                                </Item>
-                            </List>
+                            {#each categories as cate}
+                                <List>
+                                    <Item
+                                        href="javascript:void(0)"
+                                        on:click={() => (clicked = "Gray Kittens")}
+                                    >
+                                        <Text>{cate.name}</Text>
+                                    </Item>
+                                </List>
+                            {/each}
                         </Content>
                     </Panel>
                 </Accordion>
