@@ -24,5 +24,20 @@
   "dependencies": {
     "svelte-material-ui": "^7.0.0-beta.18",
     "svelte-spa-router": "^4.0.0"
-  }
+  },
+  "description": "This is a project template for [Svelte 4](https://svelte.dev) apps that includes [svelte-spa-router](https://github.com/italypaleale/svelte-spa-router) for client-side routing, TypeScript, and Vite as bundler.",
+  "main": "postcss.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ank0chiya/svelte-spa-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ank0chiya/svelte-spa-app/issues"
+  },
+  "homepage": "https://github.com/ank0chiya/svelte-spa-app#readme"
 }
