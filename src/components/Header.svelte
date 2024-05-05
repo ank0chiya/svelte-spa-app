@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {push, pop, replace} from 'svelte-spa-router'
     import Button, { Label } from "@smui/button";
     import TopAppBar, { Row, Section, Title } from "@smui/top-app-bar";
     import IconButton from "@smui/icon-button";
@@ -9,7 +10,7 @@
 
     let menu: Menu;
     function handleClick() {
-        console.log("aaaa");
+        push("/")
     }
 
     function logout(){

@@ -1,4 +1,5 @@
 <script>
+    import {push} from 'svelte-spa-router'
     import Drawer, { AppContent } from "@smui/drawer";
     import List, { Item, Text } from "@smui/list";
 
@@ -6,22 +7,19 @@
     import IconButton, { Icon } from "@smui/icon-button";
 
     import arch from "../data/archivement.json";
+    import { data } from "../lib/archivements"
 
     let panel1Open = false;
     let panel2Open = false;
 
-    let clicked = "nothing yet";
+    let sortedAchievements = Object.entries(arch).sort((a, b) => a[1].order - b[1].order);
 
-    let categories = [];
+    function clickHandler(d) {
+        console.log(`in click handler: ${JSON.stringify(d)}`)
+        $data = d
 
-    categories = Object.entries(arch)
-        .map(([id, data]) => ({
-            id,
-            name: data.name,
-            order: data.order
-        }))
-        .sort((a, b) => a.order - b.order);
-    console.log(categories)
+        push("/archivement")
+    }
 </script>
 
 <div class="drawer-container">
@@ -40,13 +38,13 @@
                             </IconButton>
                         </Header>
                         <Content>
-                            {#each categories as cate}
+                            {#each sortedAchievements as archivements}
                                 <List>
                                     <Item
                                         href="javascript:void(0)"
-                                        on:click={() => (clicked = "Gray Kittens")}
+                                        on:click={() => clickHandler(archivements[1].achievements)}
                                     >
-                                        <Text>{cate.name}</Text>
+                                        <Text>{archivements[1].name}</Text>
                                     </Item>
                                 </List>
                             {/each}
@@ -68,7 +66,7 @@
                             <List>
                                 <Item
                                     href="javascript:void(0)"
-                                    on:click={() => (clicked = "Gray Kittens")}
+                                    on:click={() => (console.log("Gray Kittens"))}
                                 >
                                     <Text>HOUSE1</Text>
                                 </Item>
@@ -76,7 +74,7 @@
                             <List>
                                 <Item
                                     href="javascript:void(0)"
-                                    on:click={() => (clicked = "Gray Kittens")}
+                                    on:click={() => (console.log("Gray Kittens"))}
                                 >
                                     <Text>HOUSE2</Text>
                                 </Item>
