@@ -1,14 +1,13 @@
+import HomeDashBoard from '../components/HomeDashBoard.svelte';
+import Archivement from '../components/Archivement.svelte';
+
 export const sidebar_items = [
-    { 
-        "title": "FOOD",
-        "items": [
-            "food1", "food2"
-        ]
+    {
+        "name": "アチーブメント",
+        "views": Archivement
     },
-    { 
-        "title": "HOUSE",
-        "items": [
-            "house1", "house2"
-        ]
-    } 
+    {
+        "name": "item2",
+        "views": HomeDashBoard
+    },
 ]

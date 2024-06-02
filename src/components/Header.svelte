@@ -24,7 +24,7 @@
             <Row>
                 <Section>
                     <Button on:click={handleClick}>
-                        <Title>コントロールパネル</Title>
+                        <Title>チェッカー</Title>
                     </Button>
                 </Section>
                 <Section align="end" toolbar>
